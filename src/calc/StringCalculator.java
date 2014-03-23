@@ -24,7 +24,7 @@ public class StringCalculator {
 			try {
 				inputArray[i] = Integer.parseInt(inputStringArray[i]);
 			} catch (NumberFormatException nfe) {
-				// Not an integer, do some
+				// Not an integer, log exception
 			}
 		}
 

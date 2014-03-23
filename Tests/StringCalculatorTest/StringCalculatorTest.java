@@ -65,7 +65,8 @@ public class StringCalculatorTest {
 	@Test
 	public void testAdd_DelimiterAtEnd() throws InputStringFormatException {
 		exception.expect(InputStringFormatException.class);
-		exception.expectMessage("Input string has incorrect format: can't end with ','");
+		exception
+				.expectMessage("Input string has incorrect format: can't end with ','");
 
 		String numbers = "2,3,7,";
 		calc.Add(numbers);
@@ -73,4 +74,27 @@ public class StringCalculatorTest {
 		// TODO: rework as parameterized test for multiple delimiters
 	}
 
+	@Test
+	public void testAdd_SumHandleNewLine() throws Exception {
+
+		String numbers = "1\n2,3";
+		int expected = 6;
+
+		int actual = calc.Add(numbers);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testAdd_SumHandleTwoDelimiters()
+			throws InputStringFormatException {
+
+		String numbers = "1,\n";
+
+		exception.expect(InputStringFormatException.class);
+		exception
+				.expectMessage("Input string has incorrect format: two delimiters "
+						+ "must have a digit between them.");
+
+		calc.Add(numbers);
+	}
 }
