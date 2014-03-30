@@ -11,7 +11,7 @@ public class Main {
 		} catch (InputStringFormatException e) {
 			e.printStackTrace();
 		}
-		System.out.println(result);
+		System.out.println(result);		
 	}
 
 }
